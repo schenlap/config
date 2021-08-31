@@ -17,6 +17,7 @@ If you want to contribute configurations to this repository please open a Pull R
 ## Chargers
 
 - [Easee Home (Cloud API)](#charger-easee-home-cloud-api)
+- [EEBUS compatible wallbox (e.g. Mobile Charger Connect)](#charger-eebus-compatible-wallbox-e-g-mobile-charger-connect)
 - [EVSE DIN](#charger-evse-din)
 - [EVSE-Wifi](#charger-evse-wifi)
 - [FritzDECT](#charger-fritzdect)
@@ -963,6 +964,15 @@ If you want to contribute configurations to this repository please open a Pull R
   password: *****
   charger: EH______
   cache: 10s
+```
+
+<a id="charger-eebus-compatible-wallbox-e-g-mobile-charger-connect"></a>
+#### EEBUS compatible wallbox (e.g. Mobile Charger Connect)
+
+```yaml
+- type: eebus
+  ski: 1234-5678-90ab-cdef-1234-5678-90ab-cdef-1234-5678 # Enter the SKI of the wallbox which can usually be found in the wallbox web interface
+  forcePVLimits: true # use Overload Protection to limit PV charging, if false PV surplus is sent as recommended charging levels to the EV, but this is currently unreliable
 ```
 
 <a id="charger-evse-din"></a>
