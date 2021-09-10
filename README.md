@@ -524,7 +524,7 @@ If you want to contribute configurations to this repository please open a Pull R
     source: calc #calculate current overall consumption + (current pv effort * (-1) )
     add:
       - source: modbus
-        uri: 192.168.1.2:502 #ip-adress and port (default-port: 502)
+        uri: 192.0.2.2:502 #ip-adress and port (default-port: 502)
         id: 1
         register:
           address: 40026 #register for overall consumption
@@ -532,7 +532,7 @@ If you want to contribute configurations to this repository please open a Pull R
           decode: int32
   
       - source: modbus
-        uri: 192.168.1.2:502 #ip-adress and port (default-port: 502)
+        uri: 192.0.2.2:502 #ip-adress and port (default-port: 502)
         id: 1
         register:
           address: 40002 #register for pv effort
@@ -548,7 +548,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: custom
   power:
     type: modbus
-    uri: 192.168.1.2:502 #ip-adress and port (default-port: 502)
+    uri: 192.0.2.2:502 #ip-adress and port (default-port: 502)
     id: 1
     register:
       address: 40002 #register for pv effort
@@ -1172,7 +1172,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: phoenix-em-eth
-  uri: 192.168.0.8:502
+  uri: 192.0.2.2:502
   meter: # only if a charge meter is connected to the controller
     power: true
     energy: true
@@ -1184,7 +1184,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: phoenix-ev-eth
-  uri: 192.168.0.8:502
+  uri: 192.0.2.2:502
   meter: # only if a charge meter is connected to the controller
     power: true
     energy: true
@@ -1207,7 +1207,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: shelly
-  uri: http://192.168.xxx.xxx  # shelly device ip address (local)
+  uri: http://192.0.2.2  # shelly device ip address (local)
   channel: 0  # shelly device relay channel 
   standbypower: 15  # treat as charging above this power
 ```
@@ -1248,7 +1248,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: wallbe
-  uri: 192.168.0.8:502 # TCP ModBus address
+  uri: 192.0.2.2:502 # TCP ModBus address
   legacy: true # set only for older Wallbe devices (pre ~2019, old controller firmware)  
   meter: # only if a charge meter is connected to the controller
     power: true
