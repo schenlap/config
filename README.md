@@ -107,6 +107,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [BMW (i3)](#vehicle-bmw-i3)
 - [Citroen](#vehicle-citroen)
 - [evNotify (HTTP)](#vehicle-evnotify-http)
+- [Fiat (500e, Neuer 500, etc)](#vehicle-fiat-500e-neuer-500-etc)
 - [Ford (Kuga, Mustang, etc)](#vehicle-ford-kuga-mustang-etc)
 - [Generic](#vehicle-generic)
 - [Hyundai (Kona, Ioniq)](#vehicle-hyundai-kona-ioniq)
@@ -1310,6 +1311,19 @@ If you want to contribute configurations to this repository please open a Pull R
     method: GET
     jq: .soc_display
   cache: 5m # cache duration
+```
+
+<a id="vehicle-fiat-500e-neuer-500-etc"></a>
+#### Fiat (500e, Neuer 500, etc)
+
+```yaml
+- type: fiat
+  title: Neuer 500 # display name for UI
+  capacity: 42 # kWh
+  user: # user
+  password: # password
+  vin: ZFAE... # optional
+  pin: xxxx #mandatory to deep refresh SoC
 ```
 
 <a id="vehicle-ford-kuga-mustang-etc"></a>
