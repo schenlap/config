@@ -1,5 +1,5 @@
 type: audi
-name: Audi (eTron etc)
+name: Audi
 sample: |
   title: eTron # display name for UI
   capacity: 14 # kWh

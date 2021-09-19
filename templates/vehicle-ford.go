@@ -8,7 +8,7 @@ func init() {
 	template := registry.Template{
 		Class:  "vehicle",
 		Type:   "ford",
-		Name:   "Ford (Kuga, Mustang, etc)",
+		Name:   "Ford",
 		Sample: `title: Kuga # display name for UI
 capacity: 10 # kWh
 user: # user

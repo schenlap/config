@@ -1,5 +1,5 @@
 type: nissan
-name: Nissan (Leaf)
+name: Nissan
 sample: |
   title: Leaf # display name for UI
   capacity: 60 # kWh

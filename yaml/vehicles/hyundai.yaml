@@ -1,5 +1,5 @@
 type: hyundai
-name: Hyundai (Kona, Ioniq)
+name: Hyundai
 sample: |
   title: Kona # display name for UI
   capacity: 64 # kWh

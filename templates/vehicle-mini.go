@@ -7,12 +7,13 @@ import (
 func init() {
 	template := registry.Template{
 		Class:  "vehicle",
-		Type:   "kia",
-		Name:   "Kia",
-		Sample: `title: e-Niro # display name for UI
-capacity: 64 # kWh
+		Type:   "mini",
+		Name:   "Mini",
+		Sample: `title: Cooper SE # display name for UI
+capacity: 32 # kWh
 user: # user
-password: # password`,
+password: # password
+vin: WBMW... # optional`,
 	}
 
 	registry.Add(template)

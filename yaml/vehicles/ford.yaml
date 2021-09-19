@@ -1,5 +1,5 @@
 type: ford
-name: Ford (Kuga, Mustang, etc)
+name: Ford
 sample: |
   title: Kuga # display name for UI
   capacity: 10 # kWh

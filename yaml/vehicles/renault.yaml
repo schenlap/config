@@ -1,5 +1,5 @@
 type: renault
-name: Renault (Zoe)
+name: Renault
 sample: |
   title: Zoe # display name for UI
   capacity: 60 # kWh

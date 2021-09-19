@@ -103,22 +103,23 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ## Vehicles
 
-- [Audi (eTron etc)](#vehicle-audi-etron-etc)
-- [BMW (i3)](#vehicle-bmw-i3)
+- [Audi](#vehicle-audi)
+- [BMW](#vehicle-bmw)
 - [Citroen](#vehicle-citroen)
 - [evNotify (HTTP)](#vehicle-evnotify-http)
-- [Fiat (500e, Neuer 500, etc)](#vehicle-fiat-500e-neuer-500-etc)
-- [Ford (Kuga, Mustang, etc)](#vehicle-ford-kuga-mustang-etc)
+- [Fiat](#vehicle-fiat)
+- [Ford](#vehicle-ford)
 - [Generic](#vehicle-generic)
-- [Hyundai (Kona, Ioniq)](#vehicle-hyundai-kona-ioniq)
-- [Kia (e-Niro, e-Soul, etc)](#vehicle-kia-e-niro-e-soul-etc)
-- [Nissan (Leaf)](#vehicle-nissan-leaf)
+- [Hyundai](#vehicle-hyundai)
+- [Kia](#vehicle-kia)
+- [Mini](#vehicle-mini)
+- [Nissan](#vehicle-nissan)
 - [NIU E-Scooter](#vehicle-niu-e-scooter)
 - [Opel](#vehicle-opel)
 - [OVMS](#vehicle-ovms)
 - [Peugeot](#vehicle-peugeot)
 - [Porsche](#vehicle-porsche)
-- [Renault (Zoe)](#vehicle-renault-zoe)
+- [Renault](#vehicle-renault)
 - [Tesla](#vehicle-tesla)
 - [VW (e-Up, e-Golf, etc)](#vehicle-vw-e-up-e-golf-etc)
 - [VW ID (ID.3, ID.4, but also e-Golf, e-Up)](#vehicle-vw-id-id-3-id-4-but-also-e-golf-e-up)
@@ -1262,8 +1263,8 @@ If you want to contribute configurations to this repository please open a Pull R
 ### Vehicles
 
 
-<a id="vehicle-audi-etron-etc"></a>
-#### Audi (eTron etc)
+<a id="vehicle-audi"></a>
+#### Audi
 
 ```yaml
 - type: audi
@@ -1274,8 +1275,8 @@ If you want to contribute configurations to this repository please open a Pull R
   vin: WAUZZZ... # optional
 ```
 
-<a id="vehicle-bmw-i3"></a>
-#### BMW (i3)
+<a id="vehicle-bmw"></a>
+#### BMW
 
 ```yaml
 - type: bmw
@@ -1313,8 +1314,8 @@ If you want to contribute configurations to this repository please open a Pull R
   cache: 5m # cache duration
 ```
 
-<a id="vehicle-fiat-500e-neuer-500-etc"></a>
-#### Fiat (500e, Neuer 500, etc)
+<a id="vehicle-fiat"></a>
+#### Fiat
 
 ```yaml
 - type: fiat
@@ -1326,8 +1327,8 @@ If you want to contribute configurations to this repository please open a Pull R
   pin: xxxx #mandatory to deep refresh SoC
 ```
 
-<a id="vehicle-ford-kuga-mustang-etc"></a>
-#### Ford (Kuga, Mustang, etc)
+<a id="vehicle-ford"></a>
+#### Ford
 
 ```yaml
 - type: ford
@@ -1357,8 +1358,8 @@ If you want to contribute configurations to this repository please open a Pull R
   cache: 5m # optional cache duration
 ```
 
-<a id="vehicle-hyundai-kona-ioniq"></a>
-#### Hyundai (Kona, Ioniq)
+<a id="vehicle-hyundai"></a>
+#### Hyundai
 
 ```yaml
 - type: hyundai
@@ -1368,8 +1369,8 @@ If you want to contribute configurations to this repository please open a Pull R
   password: # password
 ```
 
-<a id="vehicle-kia-e-niro-e-soul-etc"></a>
-#### Kia (e-Niro, e-Soul, etc)
+<a id="vehicle-kia"></a>
+#### Kia
 
 ```yaml
 - type: kia
@@ -1379,8 +1380,20 @@ If you want to contribute configurations to this repository please open a Pull R
   password: # password
 ```
 
-<a id="vehicle-nissan-leaf"></a>
-#### Nissan (Leaf)
+<a id="vehicle-mini"></a>
+#### Mini
+
+```yaml
+- type: mini
+  title: Cooper SE # display name for UI
+  capacity: 32 # kWh
+  user: # user
+  password: # password
+  vin: WBMW... # optional
+```
+
+<a id="vehicle-nissan"></a>
+#### Nissan
 
 ```yaml
 - type: nissan
@@ -1451,8 +1464,8 @@ If you want to contribute configurations to this repository please open a Pull R
   vin: WP...
 ```
 
-<a id="vehicle-renault-zoe"></a>
-#### Renault (Zoe)
+<a id="vehicle-renault"></a>
+#### Renault
 
 ```yaml
 - type: renault

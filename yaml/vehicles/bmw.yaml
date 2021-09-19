@@ -1,5 +1,5 @@
 type: bmw
-name: BMW (i3)
+name: BMW
 sample: |
   title: i3 # display name for UI
   capacity: 65 # kWh
