@@ -11,8 +11,6 @@ func init() {
 		Name:   "Tesla",
 		Sample: `title: Model S # display name for UI
 capacity: 90 # kWh
-user: # email
-password: # password
 vin: WTSLA...`,
 	}
 

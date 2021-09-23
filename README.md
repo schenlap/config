@@ -1500,8 +1500,6 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: tesla
   title: Model S # display name for UI
   capacity: 90 # kWh
-  user: # email
-  password: # password
   vin: WTSLA...
 ```
 
