@@ -763,13 +763,23 @@ If you want to contribute configurations to this repository please open a Pull R
 ```yaml
 - type: custom
   power:
-    source: modbus
-    uri: 192.0.2.2:502 # IP address of the SolarLog device and ModBus port address
-    id: 1
-    register:
-      address: 3518
-      type: input
-      decode: uint32s
+    source: calc
+    add:
+    - source: modbus
+      uri: 192.0.2.2:502
+      id: 1
+      register:
+        address: 3502 # Pac
+        type: input
+        decode: uint32s
+      scale: -1
+    - source: modbus
+      uri: 192.0.2.2:502
+      id: 1
+      register:
+        address: 3518 # Pac consumption
+        type: input
+        decode: uint32s
 ```
 
 <a id="meter-solarlog-pv-meter"></a>
@@ -779,10 +789,10 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: custom
   power:
     source: modbus
-    uri: 192.0.2.2:502 # IP address of the SolarLog  device and ModBus port address
+    uri: 192.0.2.2:502
     id: 1
     register:
-      address: 3502
+      address: 3502 # Pac
       type: input
       decode: uint32s
 ```
