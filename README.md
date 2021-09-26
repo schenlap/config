@@ -98,6 +98,9 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Tesla Powerwall (Battery Meter)](#meter-tesla-powerwall-battery-meter)
 - [Tesla Powerwall (Grid Meter)](#meter-tesla-powerwall-grid-meter)
 - [Tesla Powerwall (PV Meter)](#meter-tesla-powerwall-pv-meter)
+- [VARTA Energiespeicher (Battery Meter)](#meter-varta-energiespeicher-battery-meter)
+- [VARTA Energiespeicher (Grid Meter)](#meter-varta-energiespeicher-grid-meter)
+- [VARTA Energiespeicher (PV Meter)](#meter-varta-energiespeicher-pv-meter)
 - [vzlogger (HTTP)](#meter-vzlogger-http)
 - [vzlogger (Push Server)](#meter-vzlogger-push-server)
 - [vzlogger (split import/export channels)](#meter-vzlogger-split-import-export-channels)
@@ -944,6 +947,61 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: tesla
   uri: http://192.0.2.2/
   usage: pv
+```
+
+<a id="meter-varta-energiespeicher-battery-meter"></a>
+#### VARTA Energiespeicher (Battery Meter)
+
+```yaml
+- type: custom
+  power:
+    source: modbus
+    uri: 192.0.2.2:502
+    id: 1
+    register:
+      address: 1066 # active power
+      type: input
+      decode: int16
+    scale: -1
+  soc:
+    source: modbus
+    uri: 192.0.2.2:502
+    id: 1
+    register:
+      address: 1068 # SOC
+      type: input
+      decode: int16
+```
+
+<a id="meter-varta-energiespeicher-grid-meter"></a>
+#### VARTA Energiespeicher (Grid Meter)
+
+```yaml
+- type: custom
+  power:
+    source: modbus
+    uri: 192.0.2.2:502
+    id: 255
+    register:
+      address: 1078 # grid power
+      type: input
+      decode: int16
+    scale: -1
+```
+
+<a id="meter-varta-energiespeicher-pv-meter"></a>
+#### VARTA Energiespeicher (PV Meter)
+
+```yaml
+- type: custom
+  power:
+    source: modbus
+    uri: 192.0.2.2:502
+    id: 255
+    register:
+      address: 1102 # PV-sensor power
+      type: input
+      decode: uint16
 ```
 
 <a id="meter-vzlogger-http"></a>
