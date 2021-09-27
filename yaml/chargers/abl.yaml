@@ -1,7 +1,7 @@
 type: abl
-name: ABL eMH
+name: ABL eMH / SENEC.Wallbox pro
 sample: |
-  # chargers based on the ABL EVCC2 controller
+  # chargers based on the ABL EVCC2/3 controller
   # chose either locally attached on serial port:
   device: /dev/ttyUSB0
   baudrate: 38400

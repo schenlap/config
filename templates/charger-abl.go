@@ -8,8 +8,8 @@ func init() {
 	template := registry.Template{
 		Class:  "charger",
 		Type:   "abl",
-		Name:   "ABL eMH",
-		Sample: `# chargers based on the ABL EVCC2 controller
+		Name:   "ABL eMH / SENEC.Wallbox pro",
+		Sample: `# chargers based on the ABL EVCC2/3 controller
 # chose either locally attached on serial port:
 device: /dev/ttyUSB0
 baudrate: 38400

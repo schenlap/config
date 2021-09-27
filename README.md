@@ -16,7 +16,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ## Chargers
 
-- [ABL eMH](#charger-abl-emh)
+- [ABL eMH / SENEC.Wallbox pro](#charger-abl-emh--senec-wallbox-pro)
 - [Easee Home (Cloud API)](#charger-easee-home-cloud-api)
 - [EEBUS compatible wallbox (e.g. Mobile Charger Connect)](#charger-eebus-compatible-wallbox-e-g-mobile-charger-connect)
 - [EVSE DIN](#charger-evse-din)
@@ -1049,12 +1049,12 @@ If you want to contribute configurations to this repository please open a Pull R
 ### Chargers
 
 
-<a id="charger-abl-emh"></a>
-#### ABL eMH
+<a id="charger-abl-emh--senec-wallbox-pro"></a>
+#### ABL eMH / SENEC.Wallbox pro
 
 ```yaml
 - type: abl
-  # chargers based on the ABL EVCC2 controller
+  # chargers based on the ABL EVCC2/3 controller
   # chose either locally attached on serial port:
   device: /dev/ttyUSB0
   baudrate: 38400
