@@ -71,9 +71,9 @@ If you want to contribute configurations to this repository please open a Pull R
 - [PowerDog (Grid Meter)](#meter-powerdog-grid-meter)
 - [PowerDog (PV Meter)](#meter-powerdog-pv-meter)
 - [Powerfox Poweropti (Cloud)](#meter-powerfox-poweropti-cloud)
-- [RCT Power Storage (Battery)](#meter-rct-power-storage-battery)
-- [RCT Power Storage (Grid)](#meter-rct-power-storage-grid)
-- [RCT Power Storage (PV)](#meter-rct-power-storage-pv)
+- [RCT Power (Battery Meter)](#meter-rct-power-battery-meter)
+- [RCT Power (Grid Meter)](#meter-rct-power-grid-meter)
+- [RCT Power (PV Meter)](#meter-rct-power-pv-meter)
 - [SENEC.Home (Battery)](#meter-senec-home-battery)
 - [SENEC.Home (Grid)](#meter-senec-home-grid)
 - [SENEC.Home (PV)](#meter-senec-home-pv)
@@ -577,41 +577,34 @@ If you want to contribute configurations to this repository please open a Pull R
     jq: .Watt
 ```
 
-<a id="meter-rct-power-storage-battery"></a>
-#### RCT Power Storage (Battery)
+<a id="meter-rct-power-battery-meter"></a>
+#### RCT Power (Battery Meter)
 
 ```yaml
-- type: custom
-  power:
-    source: script
-    cmd: /bin/bash -c "rctclient read-value --host 192.0.2.2 --name g_sync.p_acc_lp"
-    timeout: 5s
-  soc:
-    source: script
-    cmd: /bin/bash -c "echo $(rctclient read-value --host 192.0.2.2 --name battery.soc) \* 100. | bc -l"
-    timeout: 5s
+- type: rct
+  uri: 192.0.2.2
+  usage: battery
+  cache: 2s
 ```
 
-<a id="meter-rct-power-storage-grid"></a>
-#### RCT Power Storage (Grid)
+<a id="meter-rct-power-grid-meter"></a>
+#### RCT Power (Grid Meter)
 
 ```yaml
-- type: custom
-  power:
-    source: script
-    cmd: /bin/bash -c "rctclient read-value --host 192.0.2.2 --name g_sync.p_ac_grid_sum_lp"
-    timeout: 5s
+- type: rct
+  uri: 192.0.2.2
+  usage: grid
+  cache: 2s
 ```
 
-<a id="meter-rct-power-storage-pv"></a>
-#### RCT Power Storage (PV)
+<a id="meter-rct-power-pv-meter"></a>
+#### RCT Power (PV Meter)
 
 ```yaml
-- type: custom
-  power:
-    source: script
-    cmd: /bin/bash -c "echo $(rctclient read-value --host 192.0.2.2 --name g_sync.p_ac_load_sum_lp) \- $(rctclient read-value --host 192.0.2.2 --name g_sync.p_acc_lp) \- $(rctclient read-value --host 192.0.2.2 --name g_sync.p_ac_grid_sum_lp) | bc -l"
-    timeout: 5s
+- type: rct
+  uri: 192.0.2.2
+  usage: pv
+  cache: 2s
 ```
 
 <a id="meter-senec-home-battery"></a>
