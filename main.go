@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "embed"
 	"fmt"
 	"io"
 	"os"
@@ -16,10 +17,7 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-const (
-	ext     = ".yaml"
-	summary = "template.md"
-)
+const ext = ".yaml"
 
 var (
 	confYaml       string
@@ -40,6 +38,9 @@ func init() {
 	flag.BoolVarP(&confHelp, "help", "h", false, "help")
 	flag.Parse()
 }
+
+//go:embed template.md
+var summaryTemplate string
 
 var sourceTemplate = `package templates {{/* Define backtick variable */}}{{$tick := "` + "`" + `"}}
 
@@ -110,11 +111,6 @@ func render(wr io.Writer, sample registry.Template) {
 }
 
 func renderSummary(wr io.Writer, samples []registry.Template) {
-	summaryTemplate, err := os.ReadFile(summary)
-	if err != nil {
-		panic(err)
-	}
-
 	// prepare outside of loop
 	re, err := regexp.Compile("[^a-zA-ZäöüÄÖÜ0-9]")
 	if err != nil {
