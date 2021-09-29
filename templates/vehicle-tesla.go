@@ -11,7 +11,10 @@ func init() {
 		Name:   "Tesla",
 		Sample: `title: Model S # display name for UI
 capacity: 90 # kWh
-vin: WTSLA...`,
+tokens:
+  access: ...
+  refresh: ...
+vin: # optional`,
 	}
 
 	registry.Add(template)

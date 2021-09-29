@@ -1561,7 +1561,10 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: tesla
   title: Model S # display name for UI
   capacity: 90 # kWh
-  vin: WTSLA...
+  tokens:
+    access: ...
+    refresh: ...
+  vin: # optional
 ```
 
 <a id="vehicle-vw-e-up-e-golf-etc"></a>
