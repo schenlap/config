@@ -2,10 +2,10 @@
 
 [![Build Status](https://github.com/evcc-io/config/workflows/Build/badge.svg)](https://github.com/evcc-io/config/actions?query=workflow%3ABuild)
 
-Configuration examples for the [EVCC EV Charge Controller](https://github.com/andig/evcc).
+Configuration examples for the [EVCC EV Charge Controller](https://github.com/evcc-io/evcc).
 
-[EVCC](https://github.com/andig/evcc) supports a growing list of [chargers](#chargers), [meters](#meters) and [vehicles](#vehicles). See below for detailed configuration.
-Additional devices can be configured using `custom` devices and related [plugins](#https://github.com/andig/evcc#plugins).
+[EVCC](https://github.com/evcc-io/evcc) supports a growing list of [chargers](#chargers), [meters](#meters) and [vehicles](#vehicles). See below for detailed configuration.
+Additional devices can be configured using `custom` devices and related [plugins](#https://github.com/evcc-io/evcc#plugins).
 
 ## Contributing
 
@@ -1334,7 +1334,7 @@ If you want to contribute configurations to this repository please open a Pull R
     power: true
     energy: true
     currents: true
-    encoding: sdm # add only when SDM meter is connected, see https://github.com/andig/evcc/discussions/1398
+    encoding: sdm # add only when SDM meter is connected, see https://github.com/evcc-io/evcc/discussions/1398
 ```
 
 
