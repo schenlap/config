@@ -17,6 +17,7 @@ If you want to contribute configurations to this repository please open a Pull R
 ## Chargers
 
 - [ABL eMH / SENEC.Wallbox pro](#charger-abl-emh--senec-wallbox-pro)
+- [cFos PowerBrain](#charger-cfos-powerbrain)
 - [Easee Home (Cloud API)](#charger-easee-home-cloud-api)
 - [EEBUS compatible wallbox (e.g. Mobile Charger Connect)](#charger-eebus-compatible-wallbox-e-g-mobile-charger-connect)
 - [EVSE DIN](#charger-evse-din)
@@ -44,6 +45,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ## Meters
 
+- [cFos PowerBrain](#meter-cfos-powerbrain)
 - [Discovergy Metering Service (Cloud)](#meter-discovergy-metering-service-cloud)
 - [E3DC (Battery Meter)](#meter-e3dc-battery-meter)
 - [E3DC (Grid Meter)](#meter-e3dc-grid-meter)
@@ -52,6 +54,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Fronius Solar API V1 (Battery Meter)](#meter-fronius-solar-api-v1-battery-meter)
 - [Fronius Solar API V1 (Grid Meter)](#meter-fronius-solar-api-v1-grid-meter)
 - [Fronius Solar API V1 (PV Meter)](#meter-fronius-solar-api-v1-pv-meter)
+- [Fronius Symo GEN24 Plus](#meter-fronius-symo-gen24-plus)
 - [Fronius Symo GEN24 Plus (Battery Meter)](#meter-fronius-symo-gen24-plus-battery-meter)
 - [Fronius Symo GEN24 Plus (Grid Meter)](#meter-fronius-symo-gen24-plus-grid-meter)
 - [Fronius Symo GEN24 Plus (PV Meter)](#meter-fronius-symo-gen24-plus-pv-meter)
@@ -134,6 +137,16 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ### Meters
 
+
+<a id="meter-cfos-powerbrain"></a>
+#### cFos PowerBrain
+
+```yaml
+- type: cfos
+  uri: 192.0.2.2:502
+  id: 1
+  # an evcc sponsortoken is required for using this charger
+```
 
 <a id="meter-discovergy-metering-service-cloud"></a>
 #### Discovergy Metering Service (Cloud)
@@ -251,6 +264,49 @@ If you want to contribute configurations to this repository please open a Pull R
     source: http
     uri: http://192.0.2.2/solar_api/v1/GetPowerFlowRealtimeData.fcgi
     jq: if .Body.Data.Site.P_PV == null then 0 else .Body.Data.Site.P_PV end
+```
+
+<a id="meter-fronius-symo-gen24-plus"></a>
+#### Fronius Symo GEN24 Plus
+
+```yaml
+- type: tmpl_fronius-gen24
+  type: custom
+  {{- if .Usage.pv }}
+  # PV
+  power:
+    source: calc
+    add:
+    - source: modbus
+      model: sunspec
+      # ::modbus-setup::
+      value: 160:3:DCW # mppt 3 charge
+      scale: -1
+    - source: modbus
+      model: sunspec
+      # ::modbus-setup::
+      value: 160:4:DCW # mppt 4 discharge
+  {{- end }}
+  {{- if .Usage.battery }}
+  # Battery
+  power:
+    source: calc
+    add:
+    - source: modbus
+      model: sunspec
+      # ::modbus-setup::
+      value: 160:3:DCW # mppt 3 charge
+      scale: -1
+    - source: modbus
+      model: sunspec
+      # ::modbus-setup::
+      value: 160:4:DCW # mppt 4 discharge
+  soc:
+    source: modbus
+    model: sunspec
+    # ::modbus-setup::
+    value: ChargeState
+  {{- end }}
 ```
 
 <a id="meter-fronius-symo-gen24-plus-battery-meter"></a>
@@ -1080,6 +1136,16 @@ If you want to contribute configurations to this repository please open a Pull R
   # or via external TCP-RS485 translator:
   # uri: 192.0.2.2:502
   id: 1 
+  # an evcc sponsortoken is required for using this charger
+```
+
+<a id="charger-cfos-powerbrain"></a>
+#### cFos PowerBrain
+
+```yaml
+- type: cfos
+  uri: 192.0.2.2:502
+  id: 1
   # an evcc sponsortoken is required for using this charger
 ```
 
