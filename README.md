@@ -54,7 +54,6 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Fronius Solar API V1 (Battery Meter)](#meter-fronius-solar-api-v1-battery-meter)
 - [Fronius Solar API V1 (Grid Meter)](#meter-fronius-solar-api-v1-grid-meter)
 - [Fronius Solar API V1 (PV Meter)](#meter-fronius-solar-api-v1-pv-meter)
-- [Fronius Symo GEN24 Plus](#meter-fronius-symo-gen24-plus)
 - [Fronius Symo GEN24 Plus (Battery Meter)](#meter-fronius-symo-gen24-plus-battery-meter)
 - [Fronius Symo GEN24 Plus (Grid Meter)](#meter-fronius-symo-gen24-plus-grid-meter)
 - [Fronius Symo GEN24 Plus (PV Meter)](#meter-fronius-symo-gen24-plus-pv-meter)
@@ -264,49 +263,6 @@ If you want to contribute configurations to this repository please open a Pull R
     source: http
     uri: http://192.0.2.2/solar_api/v1/GetPowerFlowRealtimeData.fcgi
     jq: if .Body.Data.Site.P_PV == null then 0 else .Body.Data.Site.P_PV end
-```
-
-<a id="meter-fronius-symo-gen24-plus"></a>
-#### Fronius Symo GEN24 Plus
-
-```yaml
-- type: tmpl_fronius-gen24
-  type: custom
-  {{- if .Usage.pv }}
-  # PV
-  power:
-    source: calc
-    add:
-    - source: modbus
-      model: sunspec
-      # ::modbus-setup::
-      value: 160:3:DCW # mppt 3 charge
-      scale: -1
-    - source: modbus
-      model: sunspec
-      # ::modbus-setup::
-      value: 160:4:DCW # mppt 4 discharge
-  {{- end }}
-  {{- if .Usage.battery }}
-  # Battery
-  power:
-    source: calc
-    add:
-    - source: modbus
-      model: sunspec
-      # ::modbus-setup::
-      value: 160:3:DCW # mppt 3 charge
-      scale: -1
-    - source: modbus
-      model: sunspec
-      # ::modbus-setup::
-      value: 160:4:DCW # mppt 4 discharge
-  soc:
-    source: modbus
-    model: sunspec
-    # ::modbus-setup::
-    value: ChargeState
-  {{- end }}
 ```
 
 <a id="meter-fronius-symo-gen24-plus-battery-meter"></a>
