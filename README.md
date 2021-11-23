@@ -45,6 +45,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ## Meters
 
+- [](#meter)
 - [cFos PowerBrain](#meter-cfos-powerbrain)
 - [Discovergy Metering Service (Cloud) (Grid)](#meter-discovergy-metering-service-cloud--grid)
 - [Discovergy Metering Service (Cloud) (PV)](#meter-discovergy-metering-service-cloud--pv)
@@ -59,6 +60,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Fronius Symo GEN24 Plus (Grid Meter)](#meter-fronius-symo-gen24-plus-grid-meter)
 - [Fronius Symo GEN24 Plus (PV Meter)](#meter-fronius-symo-gen24-plus-pv-meter)
 - [Generic](#meter-generic)
+- [Huawei SUN2000-12KTL (PV Meter)](#meter-huawei-sun2000-12ktl-pv-meter)
 - [Huawei SUN2000-8KTL (PV Meter)](#meter-huawei-sun2000-8ktl-pv-meter)
 - [Kostal Energy Meter via inverter (Grid Meter)](#meter-kostal-energy-meter-via-inverter-grid-meter)
 - [Kostal Hybrid Inverter (Battery Meter)](#meter-kostal-hybrid-inverter-battery-meter)
@@ -137,6 +139,14 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ### Meters
 
+
+<a id="meter"></a>
+#### 
+
+```yaml
+- type: 
+  
+```
 
 <a id="meter-cfos-powerbrain"></a>
 #### cFos PowerBrain
@@ -356,6 +366,74 @@ If you want to contribute configurations to this repository please open a Pull R
       # ...
     - source: # L3 plugin type
       # ...
+```
+
+<a id="meter-huawei-sun2000-12ktl-pv-meter"></a>
+#### Huawei SUN2000-12KTL (PV Meter)
+
+```yaml
+- type: custom
+  power:
+    source: modbus
+    id: 1
+    # chose either locally attached:
+    device: /dev/ttyUSB0 # serial port
+    baudrate: 19200
+    comset: 8N1
+    # or via TCP:
+    uri: 192.0.2.2:502
+    rtu: true # serial modbus rtu (rs485) device connected using simple ethernet adapter
+    # register details
+   register:
+     address: 37113 # Grid import export power
+     type: holding
+     decode: int32
+  
+  currents:
+   - source: modbus # Huawei phase A grid current
+     id: 1
+     # chose either locally attached:
+     device: /dev/ttyUSB0 # serial port
+     baudrate: 19200
+     comset: 8N1
+     # or via TCP:
+     uri: 192.0.2.2:502
+     rtu: true # serial modbus rtu (rs485) device connected using simple ethernet adapter
+     # register details
+     register: # manual non-sunspec register configuration
+       address: 37107 # Huawei phase A grid current
+       type: holding
+       decode: int32
+  
+   - source: modbus # Huawei phase B grid current
+     id: 1
+     # chose either locally attached:
+     device: /dev/ttyUSB0 # serial port
+     baudrate: 19200
+     comset: 8N1
+     # or via TCP:
+     uri: 192.0.2.2:502
+     rtu: true # serial modbus rtu (rs485) device connected using simple ethernet adapter
+     # register details
+     register: # manual non-sunspec register configuration
+       address: 37109 # Huawei phase B grid current
+       type: holding
+       decode: int32
+  
+   - source: modbus # Huawei phase C grid current
+     id: 1
+     # chose either locally attached:
+     device: /dev/ttyUSB0 # serial port
+     baudrate: 19200
+     comset: 8N1
+     # or via TCP:
+     uri: 192.0.2.2:502
+     rtu: true # serial modbus rtu (rs485) device connected using simple ethernet adapter
+     # register details
+     register: # manual non-sunspec register configuration
+       address: 37111 # Huawei phase C grid current
+       type: holding
+       decode: int32
 ```
 
 <a id="meter-huawei-sun2000-8ktl-pv-meter"></a>
