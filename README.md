@@ -59,7 +59,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Fronius Symo GEN24 Plus (Grid Meter)](#meter-fronius-symo-gen24-plus-grid-meter)
 - [Fronius Symo GEN24 Plus (PV Meter)](#meter-fronius-symo-gen24-plus-pv-meter)
 - [Generic](#meter-generic)
-- [Huawei SUN2000-12KTL (Grid Meter)](#meter-huawei-sun2000-12ktl-grid-meter)
+- [Huawei SUN2000-12KTL (Pv Meter)](#meter-huawei-sun2000-12ktl-pv-meter)
 - [Huawei SUN2000-12KTL (PV Meter)](#meter-huawei-sun2000-12ktl-pv-meter)
 - [Huawei SUN2000-8KTL (PV Meter)](#meter-huawei-sun2000-8ktl-pv-meter)
 - [Kostal Energy Meter via inverter (Grid Meter)](#meter-kostal-energy-meter-via-inverter-grid-meter)
@@ -360,8 +360,8 @@ If you want to contribute configurations to this repository please open a Pull R
       # ...
 ```
 
-<a id="meter-huawei-sun2000-12ktl-grid-meter"></a>
-#### Huawei SUN2000-12KTL (Grid Meter)
+<a id="meter-huawei-sun2000-12ktl-pv-meter"></a>
+#### Huawei SUN2000-12KTL (Pv Meter)
 
 ```yaml
 - type: custom
@@ -378,7 +378,7 @@ If you want to contribute configurations to this repository please open a Pull R
     rtu: true # serial modbus rtu (rs485) device connected using simple ethernet adapter
     # register details
     register:
-      address: 32080
+      address: 32080 # Active Huawei Solar generation power
       type: holding
       decode: int32
 ```
@@ -394,7 +394,7 @@ If you want to contribute configurations to this repository please open a Pull R
     id: 1
     # chose either locally attached:
     device: /dev/ttyUSB0 # serial port
-    baudrate: 19200
+    baudrate: 9600 # Huawei default
     comset: 8N1
     # or via TCP:
     uri: 192.0.2.2:502
@@ -411,7 +411,7 @@ If you want to contribute configurations to this repository please open a Pull R
     id: 1
     # chose either locally attached:
     device: /dev/ttyUSB0 # serial port
-    baudrate: 19200
+    baudrate: 9600 # Huawei default
     comset: 8N1
     # or via TCP:
     uri: 192.0.2.2:502
@@ -427,7 +427,7 @@ If you want to contribute configurations to this repository please open a Pull R
     id: 1
     # chose either locally attached:
     device: /dev/ttyUSB0 # serial port
-    baudrate: 19200
+    baudrate: 9600 # Huawei default
     comset: 8N1
     # or via TCP:
     uri: 192.0.2.2:502
@@ -443,7 +443,7 @@ If you want to contribute configurations to this repository please open a Pull R
     id: 1
     # chose either locally attached:
     device: /dev/ttyUSB0 # serial port
-    baudrate: 19200
+    baudrate: 9600 # Huawei default
     comset: 8N1
     # or via TCP:
     uri: 192.0.2.2:502
@@ -462,10 +462,11 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: custom
   power:
     source: modbus
+    timeout: 2s
     id: 1
     # chose either locally attached:
     device: /dev/ttyUSB0 # serial port
-    baudrate: 19200
+    baudrate: 9600 # Huawei default
     comset: 8N1
     # or via TCP:
     uri: 192.0.2.2:502

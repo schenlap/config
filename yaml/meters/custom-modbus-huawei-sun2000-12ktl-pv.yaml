@@ -1,5 +1,5 @@
 type: custom
-name: Huawei SUN2000-12KTL (Grid Meter)
+name: Huawei SUN2000-12KTL (Pv Meter)
 sample: |
   power:
     source: modbus
@@ -14,6 +14,6 @@ sample: |
     rtu: true # serial modbus rtu (rs485) device connected using simple ethernet adapter
     # register details
     register:
-      address: 32080
+      address: 32080 # Active Huawei Solar generation power
       type: holding
       decode: int32

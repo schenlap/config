@@ -11,10 +11,11 @@ func init() {
 		Name:   "Huawei SUN2000-8KTL (PV Meter)",
 		Sample: `power:
   source: modbus
+  timeout: 2s
   id: 1
   # chose either locally attached:
   device: /dev/ttyUSB0 # serial port
-  baudrate: 19200
+  baudrate: 9600 # Huawei default
   comset: 8N1
   # or via TCP:
   uri: 192.0.2.2:502

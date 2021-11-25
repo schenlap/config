@@ -8,7 +8,7 @@ func init() {
 	template := registry.Template{
 		Class:  "meter",
 		Type:   "custom",
-		Name:   "Huawei SUN2000-12KTL (Grid Meter)",
+		Name:   "Huawei SUN2000-12KTL (Pv Meter)",
 		Sample: `power:
   source: modbus
   timeout: 2s
@@ -22,7 +22,7 @@ func init() {
   rtu: true # serial modbus rtu (rs485) device connected using simple ethernet adapter
   # register details
   register:
-    address: 32080
+    address: 32080 # Active Huawei Solar generation power
     type: holding
     decode: int32`,
 	}
