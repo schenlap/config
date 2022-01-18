@@ -17,6 +17,7 @@ If you want to contribute configurations to this repository please open a Pull R
 ## Chargers
 
 - [ABL eMH / SENEC.Wallbox pro](#charger-abl-emh--senec-wallbox-pro)
+- [Alphatec Wallbox Mini](#charger-alphatec-wallbox-mini)
 - [cFos PowerBrain](#charger-cfos-powerbrain)
 - [Daheimladen (Cloud API)](#charger-daheimladen-cloud-api)
 - [Easee Home (Cloud API)](#charger-easee-home-cloud-api)
@@ -1195,6 +1196,21 @@ If you want to contribute configurations to this repository please open a Pull R
   device: /dev/ttyUSB0
   baudrate: 38400
   comset: 8E1
+  # or via external TCP-RS485 translator:
+  # uri: 192.0.2.2:502
+  id: 1 
+  # an evcc sponsortoken is required for using this charger
+```
+
+<a id="charger-alphatec-wallbox-mini"></a>
+#### Alphatec Wallbox Mini
+
+```yaml
+- type: alphatec
+  # chose either locally attached on serial port:
+  device: /dev/ttyUSB0
+  baudrate: 9600
+  comset: 8N1
   # or via external TCP-RS485 translator:
   # uri: 192.0.2.2:502
   id: 1 
