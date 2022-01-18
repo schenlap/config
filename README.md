@@ -138,6 +138,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Smart EQ](#vehicle-smart-eq)
 - [Tesla](#vehicle-tesla)
 - [Tronity Cloud Service](#vehicle-tronity-cloud-service)
+- [Volvo](#vehicle-volvo)
 - [VW (e-Up, e-Golf, etc)](#vehicle-vw-e-up-e-golf-etc)
 - [VW ID (ID.3, ID.4, but also e-Golf, e-Up)](#vehicle-vw-id-id-3-id-4-but-also-e-golf-e-up)
 
@@ -1779,6 +1780,18 @@ If you want to contribute configurations to this repository please open a Pull R
     refresh: # refresh token
   vin: W... # VIN
   cache: 5m # optional
+```
+
+<a id="vehicle-volvo"></a>
+#### Volvo
+
+```yaml
+- type: volvo
+  title: Volvo # display name for UI
+  capacity: 50 # kWh
+  user: # user
+  password: # password
+  vin: W... # optional
 ```
 
 <a id="vehicle-vw-e-up-e-golf-etc"></a>
