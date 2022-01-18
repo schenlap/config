@@ -64,6 +64,9 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Fronius Symo GEN24 Plus (Grid Meter)](#meter-fronius-symo-gen24-plus-grid-meter)
 - [Fronius Symo GEN24 Plus (PV Meter)](#meter-fronius-symo-gen24-plus-pv-meter)
 - [Generic](#meter-generic)
+- [Huawei SUN2000 with Sdongle (PV Meter)](#meter-huawei-sun2000-with-sdongle-pv-meter)
+- [Huawei SUN2000 with Sdongle and power sensor (Battery Meter)](#meter-huawei-sun2000-with-sdongle-and-power-sensor-battery-meter)
+- [Huawei SUN2000 with Sdongle and power sensor (Grid Meter)](#meter-huawei-sun2000-with-sdongle-and-power-sensor-grid-meter)
 - [Huawei SUN2000-8KTL (PV Meter)](#meter-huawei-sun2000-8ktl-pv-meter)
 - [Kostal Energy Meter via inverter (Grid Meter)](#meter-kostal-energy-meter-via-inverter-grid-meter)
 - [Kostal Hybrid Inverter (Battery Meter)](#meter-kostal-hybrid-inverter-battery-meter)
@@ -379,6 +382,110 @@ If you want to contribute configurations to this repository please open a Pull R
       # ...
     - source: # L3 plugin type
       # ...
+```
+
+<a id="meter-huawei-sun2000-with-sdongle-pv-meter"></a>
+#### Huawei SUN2000 with Sdongle (PV Meter)
+
+```yaml
+- type: custom
+  power:
+    source: modbus
+    uri: 192.0.2.2:502
+    model: huawei
+    timeout: 30s
+    connectdelay: 5s
+    delay: 2s
+    register:
+      address: 32080 # Active generation power
+      type: holding
+      decode: int32
+```
+
+<a id="meter-huawei-sun2000-with-sdongle-and-power-sensor-battery-meter"></a>
+#### Huawei SUN2000 with Sdongle and power sensor (Battery Meter)
+
+```yaml
+- type: custom
+  power:
+    source: modbus
+    uri: 192.0.2.2:502
+    model: huawei
+    timeout: 30s
+    connectdelay: 5
+    delay: 2s
+    register:
+      address: 37001
+      type: holding
+      decode: int32
+  soc:
+    source: modbus
+    uri: 192.0.2.2:502
+    model: huawei
+    timeout: 30s
+    connectdelay: 5
+    delay: 2s
+    register:
+      address: 37004
+      type: holding
+      decode: uint16
+    scale: 0.1
+```
+
+<a id="meter-huawei-sun2000-with-sdongle-and-power-sensor-grid-meter"></a>
+#### Huawei SUN2000 with Sdongle and power sensor (Grid Meter)
+
+```yaml
+- type: custom
+  power:
+    source: modbus
+    uri: 192.0.2.2:502
+    model: huawei
+    timeout: 30s
+    connectdelay: 5
+    delay: 2s
+    register:
+      address: 37113 # Grid import export power
+      type: holding
+      decode: int32
+    scale: -1
+  energy:
+    source: modbus
+    uri: 192.0.2.2:502
+    model: huawei
+    timeout: 30s
+    connectdelay: 5
+    delay: 2s
+    register:
+      address: 37121 # Grid active energy
+      type: holding
+      decode: int32
+    scale: 0.01
+  currents:
+  - source: modbus
+    uri: 192.0.2.2:502
+    model: huawei
+    register:
+      address: 37107 # Huawei phase A grid current
+      type: holding
+      decode: int32
+    scale: -0.01
+  - source: modbus
+    uri: 192.0.2.2:502
+    model: huawei
+    register:
+      address: 37109 # Huawei phase B grid current
+      type: holding
+      decode: int32
+    scale: -0.01
+  - source: modbus
+    uri: 192.0.2.2:502
+    model: huawei
+    register:
+      address: 37111 # Huawei phase C grid current
+      type: holding
+      decode: int32
+    scale: -0.01
 ```
 
 <a id="meter-huawei-sun2000-8ktl-pv-meter"></a>
