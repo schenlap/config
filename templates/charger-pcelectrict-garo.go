@@ -10,7 +10,8 @@ func init() {
 		Type:   "garo",
 		Name:   "PC Electric Garo",
 		Sample: `uri: http://192.0.2.2:8080/servlet
-meter: <CENTRAL100|CENTRAL101|INTERNAL|EXTERNAL|TWIN> # Value can be found at http://192.0.2.2:8080/servlet/rest/chargebox/status `,
+meter: <CENTRAL100|CENTRAL101|INTERNAL|EXTERNAL|TWIN> # Value can be found at http://192.0.2.2:8080/servlet/rest/chargebox/status 
+# an evcc sponsortoken is required for using this charger`,
 	}
 
 	registry.Add(template)

@@ -1244,6 +1244,7 @@ If you want to contribute configurations to this repository please open a Pull R
   password: *****
   charger: EH______
   cache: 10s
+  # an evcc sponsortoken is required for using this charger
 ```
 
 <a id="charger-eebus-compatible-wallbox-e-g-mobile-charger-connect"></a>
@@ -1332,6 +1333,7 @@ If you want to contribute configurations to this repository please open a Pull R
   baudrate: 19200
   comset: 8E1
   id: 1 # configurable (S2/DIP 1)
+  # an evcc sponsortoken is required for using this charger
 ```
 
 <a id="charger-i-charge-cion-modbus-rtu-over-tcp"></a>
@@ -1441,6 +1443,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: garo
   uri: http://192.0.2.2:8080/servlet
   meter: <CENTRAL100|CENTRAL101|INTERNAL|EXTERNAL|TWIN> # Value can be found at http://192.0.2.2:8080/servlet/rest/chargebox/status 
+  # an evcc sponsortoken is required for using this charger
 ```
 
 <a id="charger-phoenix-em-cp-pp-eth-controller-modbus-tcp"></a>

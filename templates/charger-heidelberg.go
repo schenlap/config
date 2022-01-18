@@ -12,7 +12,8 @@ func init() {
 		Sample: `device: /dev/ttyUSB0
 baudrate: 19200
 comset: 8E1
-id: 1 # configurable (S2/DIP 1)`,
+id: 1 # configurable (S2/DIP 1)
+# an evcc sponsortoken is required for using this charger`,
 	}
 
 	registry.Add(template)
