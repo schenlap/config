@@ -35,6 +35,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [NRGKick BT (Bluetooth)](#charger-nrgkick-bt-bluetooth)
 - [NRGKick Connect](#charger-nrgkick-connect)
 - [openWB (MQTT)](#charger-openwb-mqtt)
+- [PC Electric Garo](#charger-pc-electric-garo)
 - [Phoenix EM-CP-PP-ETH Controller (Modbus TCP)](#charger-phoenix-em-cp-pp-eth-controller-modbus-tcp)
 - [Phoenix EV-ETH Controller (Modbus TCP)](#charger-phoenix-ev-eth-controller-modbus-tcp)
 - [Phoenix EV-SER Controller (Modbus RTU)](#charger-phoenix-ev-ser-controller-modbus-rtu)
@@ -1415,6 +1416,15 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: openwb
   broker: 192.0.2.2 # openWB IP
   id: 1 # loadpoint id
+```
+
+<a id="charger-pc-electric-garo"></a>
+#### PC Electric Garo
+
+```yaml
+- type: garo
+  uri: http://192.0.2.2:8080/servlet
+  meter: <CENTRAL100|CENTRAL101|INTERNAL|EXTERNAL|TWIN> # Value can be found at http://192.0.2.2:8080/servlet/rest/chargebox/status 
 ```
 
 <a id="charger-phoenix-em-cp-pp-eth-controller-modbus-tcp"></a>
