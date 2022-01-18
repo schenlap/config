@@ -1619,7 +1619,6 @@ If you want to contribute configurations to this repository please open a Pull R
   range: # optional electric range (km)
     source: # plugin type
     # ...
-  cache: 5m # optional cache duration
 ```
 
 <a id="vehicle-hyundai"></a>
